@@ -1,0 +1,144 @@
+/* Shared responsive rules keep route layouts predictable at tablet and phone widths. */
+.page-shell,
+.page-shell > *,
+.page-shell section,
+.page-shell article,
+.page-shell header,
+.page-shell form,
+.page-shell .card {
+  min-width: 0;
+}
+
+.shortcut-grid,
+.project-grid,
+.freelancer-grid,
+.portfolio-grid,
+.tracks-grid,
+.stats-grid,
+.detail-grid,
+.grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Two-column client and freelancer summary cards stay balanced on desktop. */
+.client-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.form-page,
+.auth-card,
+.project-form,
+.proposal-form,
+.form-field,
+.form-field > input,
+.form-field > textarea,
+.form-field > select {
+  width: 100%;
+  max-width: 100%;
+}
+
+.input,
+input,
+textarea,
+select {
+  min-width: 0;
+  font-size: 1rem;
+}
+
+.form-error,
+.input-error-message { color: var(--color-danger); }
+
+.btn,
+.button {
+  min-height: 44px;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.table-wrap { width: 100%; max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; }
+.admin-table { min-width: 650px; }
+
+@media (max-width: 1024px) {
+  .shortcut-grid,
+  .project-grid,
+  .freelancer-grid,
+  .portfolio-grid,
+  .tracks-grid,
+  .stats-grid,
+  .detail-grid,
+  .grid,
+  .client-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .page-shell { padding: 2rem 1.25rem; }
+  .navbar { padding: 0.75rem 1.25rem; }
+  .admin-table th,
+  .admin-table td { padding: 0.7rem; }
+}
+
+@media (max-width: 600px) {
+  html,
+  body,
+  #root { max-width: 100%; overflow-x: clip; }
+
+  .navbar {
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-brand { align-self: flex-start; }
+  .nav-actions {
+    width: 100%;
+    max-width: 100%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .nav-greeting { display: inline; margin-right: auto; font-size: 0.875rem; }
+  .nav-link { display: inline-flex; align-items: center; min-height: 44px; padding-inline: 0.5rem; }
+
+  .page-shell { padding: 1.5rem 1rem; }
+  .container { padding-inline: 1rem; }
+
+  .shortcut-grid,
+  .project-grid,
+  .freelancer-grid,
+  .portfolio-grid,
+  .tracks-grid,
+  .stats-grid,
+  .detail-grid,
+  .grid,
+  .client-stats,
+  .admin-stats-grid,
+  .form-row,
+  .freelancer-filters {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .card { padding: 1.125rem; }
+  .auth-card { padding: 1.25rem; }
+  .project-details-card { padding: 1.25rem; }
+  .project-details-heading h1 { font-size: 1.5rem; overflow-wrap: anywhere; }
+  .section-heading-row,
+  .page-heading-action { align-items: flex-start; flex-direction: column; }
+  .form-actions,
+  .proposal-actions { width: 100%; justify-content: stretch; }
+  .form-actions > *,
+  .proposal-actions > .btn { flex: 1 1 auto; }
+  .proposal-form .btn { justify-self: stretch; width: 100%; }
+  .profile-summary { align-items: flex-start; flex-direction: column; }
+  .project-card-heading,
+  .freelancer-card-heading,
+  .project-card-footer { min-width: 0; flex-wrap: wrap; }
+  .footer-inner { align-items: center; flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; flex-wrap: wrap; }
+  .toast { right: 1rem; bottom: 1rem; left: 1rem; text-align: center; }
+  .admin-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .admin-tabs .btn { width: 100%; }
+}
